@@ -11,7 +11,3 @@ class APIUser(HttpUser):
     @task()
     def predict_endpoint(self):
         self.client.post('/predict', json = test_data)
-
-    # @task()
-    # def health_endpoint(self):
-    #     self.client.get('/health')
