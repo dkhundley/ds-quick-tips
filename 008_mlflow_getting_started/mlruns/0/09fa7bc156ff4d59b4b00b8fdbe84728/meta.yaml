@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/dkhundley/Documents/Repositories/ds-quick-tips/008_mlflow_getting_started/mlruns/0/09fa7bc156ff4d59b4b00b8fdbe84728/artifacts
+end_time: 1601163611593
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 09fa7bc156ff4d59b4b00b8fdbe84728
+run_uuid: 09fa7bc156ff4d59b4b00b8fdbe84728
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1601163611321
+status: 3
+tags: []
+user_id: dkhundley
