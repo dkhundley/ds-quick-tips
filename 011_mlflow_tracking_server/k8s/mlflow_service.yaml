@@ -1,0 +1,14 @@
+# Defining the service that connects the deployment to the ingress
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-service
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    name: FILL_IN_HERE

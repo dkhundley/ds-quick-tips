@@ -1,0 +1,35 @@
+# Creating MLflow deployment
+apiVersion: apps/v1
+kind: Deployment
+metdata:
+  name: mlflow-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels: FILL IN HERE
+  template:
+    metadata:
+      labels:
+        FILL IN HERE
+    spec:
+      securityContext:
+        fsGroup: 2000
+      containers:
+      - name: mlflow-deployment
+        image: IMAGE_NAME
+        imagePullPolicy: Always
+        args:
+        - --host=0.0.0.0
+        - --port=80
+        - --backend-store-uri=FILL_IN_HERE
+        - --default-artifact-root=FILL_IN_HERE
+        env:
+        - name: mlflow-postgres-secret
+          valueFrom:
+            secretKeyRef:
+              name: mlflow-postgres-secret
+              key: POSTGRES_PASSWORD
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
