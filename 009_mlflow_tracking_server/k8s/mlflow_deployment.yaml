@@ -6,17 +6,18 @@ metdata:
 spec:
   replicas: 1
   selector:
-    matchLabels: FILL IN HERE
+    matchLabels:
+      app: mlflow-deployment
   template:
     metadata:
       labels:
-        FILL IN HERE
+        app: mlflow-deployment
     spec:
       securityContext:
         fsGroup: 2000
       containers:
       - name: mlflow-deployment
-        image: IMAGE_NAME
+        image: dkhundley/mlflow-server
         imagePullPolicy: Always
         args:
         - --host=0.0.0.0
@@ -33,3 +34,10 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi

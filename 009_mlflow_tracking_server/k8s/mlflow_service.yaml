@@ -11,4 +11,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    name: FILL_IN_HERE
+    app: mlflow-deployment
