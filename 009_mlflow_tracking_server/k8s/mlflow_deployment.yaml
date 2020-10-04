@@ -1,7 +1,7 @@
 # Creating MLflow deployment
 apiVersion: apps/v1
 kind: Deployment
-metdata:
+metadata:
   name: mlflow-deployment
 spec:
   replicas: 1
@@ -13,8 +13,10 @@ spec:
       labels:
         app: mlflow-deployment
     spec:
-      securityContext:
-        fsGroup: 2000
+      volumes:
+        - name: mlflow-pvc
+          persistentVolumeClaim:
+            claimName: mlflow-pvc
       containers:
       - name: mlflow-deployment
         image: dkhundley/mlflow-server
@@ -22,14 +24,9 @@ spec:
         args:
         - --host=0.0.0.0
         - --port=80
-        - --backend-store-uri=FILL_IN_HERE
-        - --default-artifact-root=FILL_IN_HERE
-        env:
-        - name: mlflow-postgres-secret
-          valueFrom:
-            secretKeyRef:
-              name: mlflow-postgres-secret
-              key: POSTGRES_PASSWORD
+        # - --backend-store-uri=/opt/mlflow/backend/
+        # - --default-artifact-root=/opt/mlflow/artifacts/
+        - --workers=2
         ports:
         - name: http
           containerPort: 80
@@ -41,3 +38,6 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+        volumeMounts:
+        - name: mlflow-pvc
+          mountPath: /opt/mlflow/
