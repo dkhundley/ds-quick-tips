@@ -31,13 +31,6 @@ spec:
         - name: http
           containerPort: 80
           protocol: TCP
-        resources:
-          limits:
-            cpu: 100m
-            memory: 128Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
         volumeMounts:
         - name: mlflow-pvc
           mountPath: /opt/mlflow/
