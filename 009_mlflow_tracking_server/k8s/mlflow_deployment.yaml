@@ -19,17 +19,17 @@ spec:
             claimName: mlflow-pvc
       containers:
       - name: mlflow-deployment
-        image: dkhundley/mlflow-server
+        image: dkhundley/mlflow-server:1.0.1
         imagePullPolicy: Always
         args:
         - --host=0.0.0.0
-        - --port=80
-        # - --backend-store-uri=/opt/mlflow/backend/
-        # - --default-artifact-root=/opt/mlflow/artifacts/
+        - --port=5000
+        - --backend-store-uri=/opt/mlflow/backend/
+        - --default-artifact-root=/opt/mlflow/artifacts/
         - --workers=2
         ports:
         - name: http
-          containerPort: 80
+          containerPort: 5000
           protocol: TCP
         volumeMounts:
         - name: mlflow-pvc

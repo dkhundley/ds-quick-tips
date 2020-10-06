@@ -1,15 +1,13 @@
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: mlflow-ingress
 spec:
   rules:
-  - host: dkhundley-mlflow.info
+  - host: mlflow-server.local
     http:
       paths:
-      - path: /
-        backend:
-          service:
-            name: mlflow-service
-            port:
-              number: 5000
+        - backend:
+            serviceName: mlflow-service
+            servicePort: 5000
+          path: /

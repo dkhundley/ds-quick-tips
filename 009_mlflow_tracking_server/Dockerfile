@@ -7,4 +7,5 @@ RUN pip install PyMySQL==0.9.3 && \
     pip install mlflow[extras]==1.9.1
 
 # Defining start up command
+EXPOSE 5000
 ENTRYPOINT ["mlflow", "server"]
