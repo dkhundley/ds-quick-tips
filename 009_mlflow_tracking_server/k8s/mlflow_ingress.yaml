@@ -1,13 +1,19 @@
-apiVersion: networking.k8s.io/v1beta1
+# Creating the Minikube ingress
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mlflow-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - host: mlflow-server.local
     http:
       paths:
-        - backend:
-            serviceName: mlflow-service
-            servicePort: 5000
-          path: /
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mlflow-service
+            port:
+              number: 5000
