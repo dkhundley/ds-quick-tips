@@ -19,12 +19,13 @@ spec:
             claimName: mlflow-pvc
       containers:
       - name: mlflow-deployment
-        image: dkhundley/mlflow-server:1.0.1
+        image: dkhundley/mlflow-server:1.0.2
         imagePullPolicy: Always
         args:
         - --host=0.0.0.0
         - --port=5000
-        - --backend-store-uri=/opt/mlflow/backend/
+        # - --backend-store-uri=/opt/mlflow/backend/
+        - --backend-store-uri==postgresql://my-user:my-password@my_host:5432/my_db
         - --default-artifact-root=/opt/mlflow/artifacts/
         - --workers=2
         ports:
