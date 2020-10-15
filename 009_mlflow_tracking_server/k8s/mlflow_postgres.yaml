@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mlflow-postgres-config
+  labels:
+    app: mlflow-postgres
+data:
+  POSTGRES_DB: mlflow_db
+  POSTGRES_USER: mlflow_user
+  POSTGRES_PASSWORD: mlflow_pwd
+  PGDATA: /var/lib/postgresql/mlflow/data
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mlflow-postgres
+  labels:
+    app: mlflow-postgres
+spec:
+  selector:
+    matchLabels:
+      app: mlflow-postgres
+  serviceName: "mlflow-postgres-service"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mlflow-postgres
+    spec:
+      containers:
+      - name: mlflow-postgres
+        image: postgres:11
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: mlflow-postgres-config
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+        volumeMounts:
+        - name: mlflow-pvc
+          mountPath: /var/lib/postgresql/mlflow
+  volumeClaimTemplates:
+  - metadata:
+      name: mlflow-pvc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 100Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-postgres-service
+  labels:
+    svc: mlflow-postgres-service
+spec:
+  type: NodePort
+  ports:
+  - port: 5432
+    targetPort: 5432
+    protocol: TCP
+  selector:
+    app: mlflow-postgres
