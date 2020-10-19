@@ -63,5 +63,13 @@ with mlflow.start_run():
     mlflow.log_metric('abs_error', abs_error)
     mlflow.log_metric('r2', r2)
 
+    # Logging training data
+    mlflow.log_artifact(local_path = '../data/wine/train.csv')
+
+    # Logging training code
+    mlflow.log_artifact(local_path = './mlflow-wine.py')
+
     # Logging model to MLFlow
-    mlflow.sklearn.log_model(model, 'model')
+    mlflow.sklearn.log_model(sk_model = model,
+                             artifact_path = 'wine-pyfile-model',
+                             registered_model_name = 'wine-pyfile-model')
