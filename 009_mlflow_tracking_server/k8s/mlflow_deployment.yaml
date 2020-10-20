@@ -20,7 +20,7 @@ spec:
         args:
         - --host=0.0.0.0
         - --port=5000
-        - --backend-store-uri=postgresql://mlflow_user:mlflow_pwd@10.98.160.170:5432/mlflow_db
+        - --backend-store-uri=postgresql://mlflow_user:mlflow_pwd@10.109.74.95:5432/mlflow_db
         - --default-artifact-root=s3://mlflow/
         - --workers=2
         env:
