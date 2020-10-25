@@ -1,6 +1,8 @@
 import pandas as pd
 import joblib
-from flask import Flask, request, json, Response, jsonify, make_response
+from flask import Flask, request, json, Response
+
+
 
 ## PRELOADED COMPONENTS
 # ------------------------------------------------------------------------------
@@ -8,7 +10,7 @@ from flask import Flask, request, json, Response, jsonify, make_response
 application = Flask(__name__)
 
 # Loading the saved, serialized model
-model = joblib.load('../model/rfc_pipeline.pkl')
+model = joblib.load('model.pkl')
 
 
 
@@ -42,3 +44,9 @@ def health():
     js = json.dumps({'Status': 'Healthy!'})
 
     return Response(js, status = 200, mimetype = 'application/json')
+
+
+
+if __name__ == '__main__':
+    # Starting Flask application
+    application.run(host = '0.0.0.0')
