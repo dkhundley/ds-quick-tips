@@ -1,0 +1,42 @@
+# Creating the deployment for the Iris FastAPI
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-iris
+  labels:
+    app: fastapi-iris
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-iris
+  template:
+    metadata:
+      labels:
+        app: fastapi-iris
+    spec:
+      containers:
+      - name: fastapi-iris
+        image: fastapi-iris:1.0.0
+        ports:
+        = containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+# Creating the service to support the Iris FastAPI deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-iris-service
+  labels:
+    app: fastapi-iris
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: fastapi-iris
