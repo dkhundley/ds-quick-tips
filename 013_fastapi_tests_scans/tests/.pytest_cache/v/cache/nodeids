@@ -1,0 +1,4 @@
+[
+  "test_api.py::test_predict",
+  "test_api.py::test_root_message"
+]
