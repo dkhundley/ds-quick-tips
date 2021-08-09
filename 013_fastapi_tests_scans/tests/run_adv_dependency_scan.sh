@@ -1,1 +1,0 @@
-snyk test --file=../dependencies/requirements.txt --json-file-output=test_reports/adv_dependency_scan_report.json

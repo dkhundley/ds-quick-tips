@@ -1,0 +1,2 @@
+Method,Name,Error,Occurrences
+POST,/predict,"HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fe86016bb50>: Failed to establish a new connection: [Errno 61] Connection refused'))",112

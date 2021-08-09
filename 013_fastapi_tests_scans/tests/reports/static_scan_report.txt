@@ -1,0 +1,47 @@
+Run started:2021-08-08 21:40:22.468129
+
+Test results:
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: ../container/api.py:2
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+1	import pandas as pd
+2	import pickle
+3	from fastapi import FastAPI, Request
+
+--------------------------------------------------
+>> Issue: [B301:blacklist] Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.
+   Severity: Medium   Confidence: High
+   Location: ../container/api.py:15
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html#b301-pickle
+14	with open(pkl_filename, 'rb') as file:
+15	    lr_model = pickle.load(file)
+16	
+
+--------------------------------------------------
+>> Issue: [B403:blacklist] Consider possible security implications associated with pickle module.
+   Severity: Low   Confidence: High
+   Location: ../container/train.py:4
+   More Info: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_imports.html#b403-import-pickle
+3	import pandas as pd
+4	import pickle
+5	from sklearn import datasets
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 33
+	Total lines skipped (#nosec): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0.0
+		Low: 2.0
+		Medium: 1.0
+		High: 0.0
+	Total issues (by confidence):
+		Undefined: 0.0
+		Low: 0.0
+		Medium: 0.0
+		High: 3.0
+Files skipped (0):
