@@ -1,0 +1,1 @@
+safety check -r ../dependencies/requirements.txt --full-report -o reports/dependency_scan_report.txt

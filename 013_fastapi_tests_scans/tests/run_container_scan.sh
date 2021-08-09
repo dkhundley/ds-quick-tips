@@ -1,0 +1,1 @@
+docker scan iris-api:dev | tee reports/container_scan_results.txt

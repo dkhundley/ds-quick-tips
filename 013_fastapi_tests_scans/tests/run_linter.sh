@@ -1,0 +1,1 @@
+pylint ../container/ --reports=y --output=reports/linter_report.txt

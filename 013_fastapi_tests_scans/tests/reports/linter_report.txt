@@ -1,0 +1,137 @@
+************* Module container.api
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:42:0: C0304: Final newline missing (missing-final-newline)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:3:0: E0401: Unable to import 'fastapi' (import-error)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:4:0: E0401: Unable to import 'fastapi.responses' (import-error)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:13:0: C0103: Constant name "pkl_filename" doesn't conform to UPPER_CASE naming style (invalid-name)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:31:0: C0116: Missing function or method docstring (missing-function-docstring)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/api.py:2:0: C0411: standard import "import pickle" should be placed before "import pandas as pd" (wrong-import-order)
+************* Module container.train
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/train.py:28:0: C0304: Final newline missing (missing-final-newline)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/train.py:28:0: W0311: Bad indentation. Found 1 spaces, expected 4 (bad-indentation)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/train.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/train.py:26:0: C0103: Constant name "pkl_filename" doesn't conform to UPPER_CASE naming style (invalid-name)
+/Users/dkhundley/Documents/Repositories/ds-quick-tips/013_fastapi_tests_scans/container/train.py:4:0: C0411: standard import "import pickle" should be placed before "import numpy as np" (wrong-import-order)
+
+
+Report
+======
+30 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |3      |3          |=          |33.33       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |0          |=          |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |2      |2          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    numpy (container.train)
+    pandas (container.api,container.train)
+    sklearn 
+      \-datasets (container.train)
+      \-linear_model (container.train)
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |38     |50.00 |38       |=          |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |0        |=          |
++----------+-------+------+---------+-----------+
+|comment   |18     |23.68 |18       |=          |
++----------+-------+------+---------+-----------+
+|empty     |20     |26.32 |20       |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |10     |10       |=          |
++-----------+-------+---------+-----------+
+|refactor   |0      |0        |=          |
++-----------+-------+---------+-----------+
+|warning    |1      |1        |=          |
++-----------+-------+---------+-----------+
+|error      |2      |2        |=          |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++----------------+-------+--------+---------+-----------+
+|module          |error  |warning |refactor |convention |
++================+=======+========+=========+===========+
+|container.api   |100.00 |0.00    |0.00     |60.00      |
++----------------+-------+--------+---------+-----------+
+|container.train |0.00   |100.00  |0.00     |40.00      |
++----------------+-------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++---------------------------+------------+
+|message id                 |occurrences |
++===========================+============+
+|wrong-import-order         |2           |
++---------------------------+------------+
+|missing-module-docstring   |2           |
++---------------------------+------------+
+|missing-function-docstring |2           |
++---------------------------+------------+
+|missing-final-newline      |2           |
++---------------------------+------------+
+|invalid-name               |2           |
++---------------------------+------------+
+|import-error               |2           |
++---------------------------+------------+
+|bad-indentation            |1           |
++---------------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 3.00/10 (previous run: 3.00/10, +0.00)
+

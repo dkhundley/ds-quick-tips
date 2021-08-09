@@ -1,5 +1,5 @@
 # Starting with base image
-FROM python:3.8-slim-buster
+FROM python:3.9-slim-buster
 
 # Installing required packages from requirements.txt file
 COPY dependencies/requirements.txt /
@@ -13,7 +13,7 @@ COPY models/ /models
 WORKDIR /container
 
 # Exposing the appropriate port on the container
-EXPOSE 5000
+EXPOSE 5001
 
 # Setting the entrypoint for the container
-ENTRYPOINT ["uvicorn"]
+ENTRYPOINT ["uvicorn", "--host", "0.0.0.0", "--port", "5001", "api:api"]

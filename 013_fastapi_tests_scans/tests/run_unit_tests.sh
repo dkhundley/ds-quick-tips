@@ -1,1 +1,1 @@
-pytest --html=test_reports/unit_test_report.html unit_testing/
+pytest --log-file=reports/unit_test_report.txt unit_testing/

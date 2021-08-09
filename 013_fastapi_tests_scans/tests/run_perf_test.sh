@@ -1,0 +1,1 @@
+locust --locustfile performance_testing/locustfile.py --headless --users 15 --spawn-rate 5 --run-time 30s --only-summary --csv reports/performance_test

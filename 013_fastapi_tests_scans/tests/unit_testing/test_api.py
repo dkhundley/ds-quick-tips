@@ -21,7 +21,7 @@ with open('test_json/test_data.json', 'rb') as file:
 def test_root_message():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {'message': 'Hello friends!'}
+    assert response.json() == {'message': 'Hello friend!'}
 
 # Creating a unit test for the prediction endpoint
 def test_predict():
