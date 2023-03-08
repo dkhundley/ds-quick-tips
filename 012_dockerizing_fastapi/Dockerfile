@@ -12,7 +12,8 @@ COPY container/ /container
 WORKDIR /container
 
 # Exposing the appropriate port on the container
-EXPOSE 5000
+EXPOSE 5001
 
 # Setting the entrypoint for the container
-ENTRYPOINT ["uvicorn"]
+
+CMD ["uvicorn", "api:api", "--host", "0.0.0.0", "--port", "5001", "--reload" ]
